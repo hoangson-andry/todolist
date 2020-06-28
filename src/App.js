@@ -1,6 +1,5 @@
 import React from "react";
 import TodoInput from "./components/TodoInput";
-// import Todo from "./components/Todo";
 import TodoList from "./components/TodoList";
 import "./App.css";
 
@@ -58,6 +57,7 @@ class App extends React.Component {
           alert("Co loi dang xay ra");
           break;
       }
+      return 1;
     });
     this.setState({ todosList: item });
   };

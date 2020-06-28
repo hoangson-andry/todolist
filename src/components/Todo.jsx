@@ -9,7 +9,7 @@ class Todo extends Component {
   };
   render() {
     const style =
-      this.props.data.status == "completed"
+      this.props.data.status === "completed"
         ? { textDecoration: "Line-through" }
         : { textDecoration: "none" };
     return (
