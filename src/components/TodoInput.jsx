@@ -8,17 +8,24 @@ class TodoInput extends Component {
   }
   addTodo = (data) => {
     data.preventDefault();
-    if (this.inputRef.current.value.trim() === "") {
+    if (this.inputRef.current.value === "") {
       alert("vui long nhap todo");
     } else {
       this.props.handleAddTodo(
         this.inputRef.current.value,
         this.selectRef.current.value
       );
+      /// set current state to handle delete
+      if (localStorage.getItem("currentState") === null) {
+        localStorage.setItem("currentState", "all");
+      }
     }
   };
+
   changeStatus = (data) => {
     this.props.handleFilter(this.selectRef.current.value);
+    /// set current state to handle delete
+    localStorage.setItem("currentState", "this.selectRef.current.value");
   };
   render() {
     return (

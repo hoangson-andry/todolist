@@ -11,7 +11,6 @@ class App extends React.Component {
       todosList: [],
     };
   }
-
   /// add todo to list
   addTodo = async (data, status) => {
     let todo = this.state.items;
@@ -30,7 +29,7 @@ class App extends React.Component {
     });
     await this.setState({ items: todos });
     //update list after remove
-    this.filterData(value.status);
+    this.filterData(localStorage.getItem("currentState"));
   };
   // change todo to complete ;
   setCompleteTodo = async (value) => {
@@ -41,8 +40,9 @@ class App extends React.Component {
         data.status = "completed";
       }
     });
-    await this.setState({ items: fItems });
+    this.setState({ items: fItems });
   };
+
   //filter
   filterData = (value) => {
     let item = this.state.items.filter((data) => {
@@ -54,7 +54,6 @@ class App extends React.Component {
         case "uncompleted":
           return data.status === "uncompleted";
         default:
-          alert("Co loi dang xay ra");
           break;
       }
       return 1;
