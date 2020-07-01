@@ -15,8 +15,8 @@ class TodoList extends Component {
           {this.props.todosList.map((data, index) => {
             return (
               <Todo
-                handleRemove={this.removeTodo.bind(this)}
-                handleSetComplete={this.setCompleteTodo.bind(this)}
+                handleRemove={this.removeTodo}
+                handleSetComplete={this.setCompleteTodo}
                 data={data}
                 key={index}
               />

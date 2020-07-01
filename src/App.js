@@ -34,13 +34,13 @@ class App extends React.Component {
   // change todo to complete ;
   setCompleteTodo = async (value) => {
     //set complete
-    const fItems = this.state.items;
-    await fItems.forEach((data, index) => {
+    const _items = this.state.items;
+    await _items.forEach((data, index) => {
       if (data.name === value) {
         data.status = "completed";
       }
     });
-    this.setState({ items: fItems });
+    this.setState({ items: _items });
   };
 
   //filter
@@ -68,12 +68,12 @@ class App extends React.Component {
           <h1>Todo List React</h1>
         </header>
         <TodoInput
-          handleFilter={this.filterData.bind(this)}
-          handleAddTodo={this.addTodo.bind(this)}
+          handleFilter={this.filterData}
+          handleAddTodo={this.addTodo}
         />
         <TodoList
-          handleRemove={this.removeTodo.bind(this)}
-          handleSetComplete={this.setCompleteTodo.bind(this)}
+          handleRemove={this.removeTodo}
+          handleSetComplete={this.setCompleteTodo}
           todosList={this.state.todosList}
         />
       </div>
